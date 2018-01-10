@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+
+	<insert id="create" parameterType="com.portfolio.web.member.vo.MemberVO">
+	
+		INSERT INTO
+			tbl_member(
+				memberId,
+				memberPw,
+				memberName,
+				memberEmail,
+				memberGender,
+				memberPhone,
+				memberRegdate
+			)
+			VALUES(
+				#{memberId},
+				md5(#{memberPw}),
+				#{memberName},
+				#{memberEmail},
+				#{memberGender},
+				#{memberPhone},
+				#{memberRegdate}
+			)
+	
+	</insert>
+
+	<select id="loginAction" resultType="com.portfolio.web.member.vo.MemberVO">
+		SELECT * FROM
+			tbl_member
+		WHERE
+			memberId = #{memberId}
+		AND
+			memberPw = md5(#{memberPw})
+	</select>
+	
+	<update id="modify">
+	
+		UPDATE
+			tbl_member
+		SET
+			memberPw = #{memberPw},
+			memberName = #{memberName},
+			memberEmail = #{memberEmail},
+			memberPhone = #{memberPhone}
+		WHERE
+			memberId = #{memberId}
+	
+	</update>
+
+	<select id="selectId" resultType="com.portfolio.web.member.vo.MemberVO">
+	
+		SELECT 
+			memberId,
+			memberName
+		FROM
+			tbl_member
+		WHERE
+			memberName = #{memberName}
+		AND
+			memberPhone = #{memberPhone}
+	
+	</select>
+
+	<delete id="deleteId" parameterType="com.portfolio.web.member.vo.MemberVO">
+	
+		DELETE FROM
+			tbl_member
+		WHERE
+			memberId = #{memberId}
+	
+	</delete>
+
+</mapper>

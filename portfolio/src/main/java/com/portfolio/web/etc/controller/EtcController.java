@@ -22,5 +22,11 @@ public class EtcController {
 		logger.info("policy");
 		return "etc/policy";
 	}
+	
+	@RequestMapping("/intro")
+	public String intro(){
+		logger.info("intro");
+		return "etc/intro";
+	}
 
 }

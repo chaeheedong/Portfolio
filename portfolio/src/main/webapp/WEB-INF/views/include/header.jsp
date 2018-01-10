@@ -21,9 +21,8 @@
       <div class="header">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="#">회사소개</a></li>
-            <li role="presentation"><a href="#">오시는 길</a></li>
-            <li role="presentation"><a href="#">인재 채용</a></li>
+            <li role="presentation"><a href="#">선호 기업</a></li>
+            <li role="presentation"><a href="/etc/intro">포트폴리오 소개</a></li>
             <c:choose>
             	<c:when test="${ sessionScope.memberId != null }">
 		            <li role="presentation"><a href="/board/list">게시판</a></li>

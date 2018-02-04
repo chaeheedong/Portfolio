@@ -41,7 +41,7 @@
 		UPDATE
 			tbl_member
 		SET
-			memberPw = #{memberPw},
+			memberPw = md5(#{memberPw}),
 			memberName = #{memberName},
 			memberEmail = #{memberEmail},
 			memberPhone = #{memberPhone}
